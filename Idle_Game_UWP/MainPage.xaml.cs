@@ -38,7 +38,6 @@ namespace Idle_Game_UWP
             LoadContent();
             ThreadPoolTimer PeriodicTimer = ThreadPoolTimer.CreatePeriodicTimer(async (source) =>
             {
-                //Debug.WriteLine("Updated");
                 await Dispatcher.RunAsync(CoreDispatcherPriority.High, Update);
             }, UpdatePeriod); 
         }
@@ -48,6 +47,20 @@ namespace Idle_Game_UWP
             TBGoldPerClickDisplay.Text = "GPC: " + User.GoldPerClick.ToString();
             TBGoldPerSecondDisplay.Text = "GPS: " + User.GoldPerSecond.ToString();
             User.Gold += User.GoldPerSecond / 20;
+            foreach (Button item in GButtonHolder.Children.OfType<Button>())
+            {
+                float tempFloat = (float)item.Tag;
+                if (tempFloat <= User.Gold)
+                {
+                    item.Background = new SolidColorBrush(Colors.Green);
+                    item.IsEnabled = true;
+                }
+                else
+                {
+                    item.Background = new SolidColorBrush(Colors.Red);
+                    item.IsEnabled = false;
+                }
+            }
         }
         private void LoadContent()
         {
@@ -76,7 +89,6 @@ namespace Idle_Game_UWP
                 GButtonHolder.Children.Add(TBItemInfo);
                 GButtonHolder.Children.Add(BTItemButton);
 
-                Debug.WriteLine("Rownr " + GridRow);
                 GridRow++;
             }
         }
@@ -99,7 +111,6 @@ namespace Idle_Game_UWP
                 GButtonHolder.Children.Add(TBItemInfo);
                 GButtonHolder.Children.Add(BTItemButton);
 
-                Debug.WriteLine("Rownr " + GridRow);
                 GridRow++;
             }
         }
@@ -156,7 +167,8 @@ namespace Idle_Game_UWP
             BTItemButton.HorizontalAlignment = HorizontalAlignment.Stretch;
             BTItemButton.VerticalAlignment = VerticalAlignment.Stretch;
             BTItemButton.Background = new SolidColorBrush(Colors.SkyBlue);
-            BTItemButton.Click += (sender, e) => BTItemButton_Click(item);
+            BTItemButton.Click += (sender, e) => BTItemButton_Click(sender, e, item);
+            BTItemButton.Tag = item.Cost;
             Grid.SetRow(BTItemButton, GridRow);
             Grid.SetColumn(BTItemButton, GridColumn);
             return BTItemButton;
@@ -168,25 +180,37 @@ namespace Idle_Game_UWP
             BTItemButton.HorizontalAlignment = HorizontalAlignment.Stretch;
             BTItemButton.VerticalAlignment = VerticalAlignment.Stretch;
             BTItemButton.Background = new SolidColorBrush(Colors.SkyBlue);
-            BTItemButton.Click += (sender, e) => BTItemButton_Click(upgrade);
+            BTItemButton.Click += (sender, e) => BTItemButton_Click(sender, e, upgrade);
+            BTItemButton.Tag = upgrade.Cost;
             Grid.SetRow(BTItemButton, GridRow);
             Grid.SetColumn(BTItemButton, GridColumn);
             return BTItemButton;
         }
-        private void BTItemButton_Click(Classes.Item Item)
+        private void BTItemButton_Click(object sender, RoutedEventArgs e, Classes.Item Item)
         {
+            Button temp = sender as Button;
             if (User.Gold >= Item.Cost)
             {
                 User.Gold -= Item.Cost;
                 User.GoldPerSecond += Item.Power;
                 Item.Count += 1;
                 Item.Cost = Convert.ToSingle(Math.Round(Item.Cost * 1.15f));
+                temp.Tag = Item.Cost;
                 LoadItems(null, null);
             }
         }
-        private void BTItemButton_Click(Classes.Upgrade Upgrade)
+        private void BTItemButton_Click(object sender, RoutedEventArgs e, Classes.Upgrade Upgrade)
         {
-            Debug.WriteLine(Upgrade.Name);
+            Button temp = sender as Button;
+            if (User.Gold >= Upgrade.Cost)
+            {
+                User.Gold -= Upgrade.Cost;
+                User.GoldPerClick += Upgrade.Power;
+                Upgrade.Count += 1;
+                Upgrade.Cost = Convert.ToSingle(Math.Round(Upgrade.Cost * 1.15f));
+                temp.Tag = Upgrade.Cost;
+                LoadUpgrades(null, null);
+            }
         }
 
     }

@@ -9,9 +9,9 @@ namespace Idle_Game_UWP.Classes
     class Upgrade
     {
         public string Name { get; private set; }
-        public int Cost { get; private set; }
-        public int Power { get; private set; }
-        public int Count { get; private set; }
+        public float Cost { get; set; }
+        public int Power { get; set; }
+        public int Count { get; set; }
 
         public Upgrade(string Name, int Cost, int Count, int Power)
         {

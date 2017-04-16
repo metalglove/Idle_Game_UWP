@@ -11,7 +11,7 @@ namespace Idle_Game_UWP.Classes
 {
     class User
     {
-        public float Gold = 99990.00f;
+        public float Gold = 100000.00f;
         public float GoldPerClick = 1.00f;
         public float GoldPerSecond = 0.00f;
 
