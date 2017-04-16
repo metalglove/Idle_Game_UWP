@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Items>
+  <Item name="The Clicker Bot V1.0" image="ms-appx:///Sprites/The Clicker Bot V1.0.jpg">
+    <Cost>250</Cost>
+    <Count>0</Count>
+    <Power>5</Power>
+  </Item>
+  <Item name="The Clicker Bot V2.0" image="ms-appx:///Sprites/The Clicker Bot V1.0.jpg">
+    <Cost>1000</Cost>
+    <Count>0</Count>
+    <Power>50</Power>
+  </Item>
+  <Item name="Clicker Maniac" image="ms-appx:///Sprites/The Clicker Bot V1.0.jpg">
+    <Cost>5000</Cost>
+    <Count>0</Count>
+    <Power>150</Power>
+  </Item>
+  <Item name="Nuclear Clicker" image="ms-appx:///Sprites/The Clicker Bot V1.0.jpg">
+    <Cost>25000</Cost>
+    <Count>0</Count>
+    <Power>500</Power>
+  </Item>
+  <Item name="The Clicker Bot V3.0" image="ms-appx:///Sprites/The Clicker Bot V1.0.jpg">
+    <Cost>125000</Cost>
+    <Count>0</Count>
+    <Power>750</Power>
+  </Item>
+  <Item name="Former OSU Player" image="ms-appx:///Sprites/Former OSU Player.jpg">
+    <Cost>500000</Cost>
+    <Count>0</Count>
+    <Power>2500</Power>
+  </Item>
+</Items>

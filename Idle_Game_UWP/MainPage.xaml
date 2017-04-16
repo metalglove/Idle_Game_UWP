@@ -8,6 +8,83 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Upper Screen -->
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="GTopBar" Background="AliceBlue" Grid.Row="0" Grid.ColumnSpan="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="TBGoldDisplay" Text="Gold: 0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0" Margin="20,0,0,0"/>
+                <TextBlock x:Name="TBGoldPerClickDisplay" Text="GPC: 1" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"/>
+                <TextBlock x:Name="TBGoldPerSecondDisplay" Text="GPS: 1" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2"/>
+            </Grid>
+            <Grid x:Name="GContentBar" Background="CadetBlue" Grid.Row="1" Grid.RowSpan="6" Grid.ColumnSpan="4">
+                <Button x:Name="BTClick" Click="BTClick_Click" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Content="Click Me!" FontSize="54"/>
+            </Grid>
+            <Grid x:Name="GBottomBar" Background="AliceBlue" Grid.Row="7" Grid.ColumnSpan="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="TBPrestigeDisplay" Text="Prestige: 0" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0"/>
+                <TextBlock x:Name="TBGemsDisplay" Text="Gems: 0" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1"/>
+                <TextBlock x:Name="TBSettingsDisplay" Text="Settings" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2"/>
+            </Grid>
+        </Grid>
+        <!-- /Upper Screen -->
+        <!-- Lower Screen -->
+        <Grid x:Name="GContentHolder" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="BTUpgrades" Background="CadetBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="0" FontSize="20" Content="Upgrades" Click="LoadUpgrades"/>
+            <Button x:Name="BTItems" Background="CadetBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="0" FontSize="20" Content="Items" Click="LoadItems"/>
+            <!-- <ListBox Grid.Row="1" x:Name="LBButtonHolder" Grid.ColumnSpan="2">
+                
+            </ListBox>
+            -->
+            <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Hidden">
+                <Grid x:Name="GButtonHolder">
+                    <Grid.RowDefinitions>
+                        
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </ScrollViewer>
+            
+        </Grid>
+        <!-- /Lower Screen -->
     </Grid>
 </Page>

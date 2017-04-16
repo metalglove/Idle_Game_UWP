@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Upgrades>
+  <Upgrade name="Upgrade 1">
+    <Cost>10</Cost>
+    <Count>0</Count>
+    <Power>1</Power>
+  </Upgrade>
+  <Upgrade name="Upgrade 2">
+    <Cost>30</Cost>
+    <Count>0</Count>
+    <Power>5</Power>
+  </Upgrade>
+  <Upgrade name="Upgrade 3">
+    <Cost>100</Cost>
+    <Count>0</Count>
+    <Power>10</Power>
+  </Upgrade>
+  <Upgrade name="Upgrade 4">
+    <Cost>250</Cost>
+    <Count>0</Count>
+    <Power>25</Power>
+  </Upgrade>
+  <Upgrade name="Upgrade 5">
+    <Cost>1500</Cost>
+    <Count>0</Count>
+    <Power>50</Power>
+  </Upgrade>
+  <Upgrade name="Upgrade 6">
+    <Cost>50000</Cost>
+    <Count>0</Count>
+    <Power>100</Power>
+  </Upgrade>
+</Upgrades>
